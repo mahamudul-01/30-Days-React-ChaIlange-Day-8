@@ -1,11 +1,22 @@
-
 const SimpleForm = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const name=e.target.name.value;
+    const email=e.target.email.value;
+    const message=e.target.message.value;
+    alert(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+  }
+    
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-6 text-center">Contact Us</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="name"
+          >
             Name
           </label>
           <input
@@ -14,12 +25,14 @@ const SimpleForm = () => {
             name="name"
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             placeholder="Enter your name"
-            required
           />
         </div>
 
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="email"
+          >
             Email
           </label>
           <input
@@ -28,12 +41,14 @@ const SimpleForm = () => {
             name="email"
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             placeholder="Enter your email"
-            required
           />
         </div>
 
         <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="message"
+          >
             Message
           </label>
           <textarea
@@ -42,7 +57,6 @@ const SimpleForm = () => {
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             placeholder="Enter your message"
             rows="4"
-            required
           />
         </div>
 

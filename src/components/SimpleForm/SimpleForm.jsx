@@ -1,32 +1,45 @@
 import { useState } from "react";
 
 const SimpleForm = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [message, setMessage] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    const nameValue=e.target.name.value;
-    const emailValue=e.target.email.value;
-    const messageValue=e.target.message.value;
+    const nameValue = e.target.name.value;
+    const emailValue = e.target.email.value;
+    const passwordValue = e.target.password.value;
+    const messageValue = e.target.message.value;
     setName(nameValue);
     setEmail(emailValue);
+    if(passwordValue.length < 6){
+      
+      alert('Password must be at least 8 characters long');
+      return;
+    }
+    setPassword(passwordValue);
     setMessage(messageValue);
-    console.log(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+    console.log(`Name: ${name}\nEmail: ${email}\nPassword: ${password}\nMessage: ${message}`);
   }
 
   const handleNameChange = (e) => {
-   console.log(e.target.value);
+    console.log(e.target.value);
   }
 
   const handleEmailChange = (e) => {
     console.log(e.target.value);
   }
 
-    const handleMessageChange = (e) => {
+  const handlePasswordChange = (e) => {
     console.log(e.target.value);
-    }
+  }
+
+  const handleMessageChange = (e) => {
+    console.log(e.target.value);
+  }
     
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
@@ -40,9 +53,7 @@ const SimpleForm = () => {
             Name
           </label>
           <input
-          onChange={
-            handleNameChange
-          }
+            onChange={handleNameChange}
             type="text"
             id="name"
             name="name"
@@ -65,6 +76,23 @@ const SimpleForm = () => {
             name="email"
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             placeholder="Enter your email"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="password"
+          >
+            Password
+          </label>
+          <input
+            onChange={handlePasswordChange}
+            type="password"
+            id="password"
+            name="password"
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            placeholder="Enter your password"
           />
         </div>
 

@@ -1,12 +1,32 @@
+import { useState } from "react";
+
 const SimpleForm = () => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [message, setMessage] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    const name=e.target.name.value;
-    const email=e.target.email.value;
-    const message=e.target.message.value;
-    alert(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
+    const nameValue=e.target.name.value;
+    const emailValue=e.target.email.value;
+    const messageValue=e.target.message.value;
+    setName(nameValue);
+    setEmail(emailValue);
+    setMessage(messageValue);
+    console.log(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
   }
+
+  const handleNameChange = (e) => {
+   console.log(e.target.value);
+  }
+
+  const handleEmailChange = (e) => {
+    console.log(e.target.value);
+  }
+
+    const handleMessageChange = (e) => {
+    console.log(e.target.value);
+    }
     
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
@@ -20,6 +40,9 @@ const SimpleForm = () => {
             Name
           </label>
           <input
+          onChange={
+            handleNameChange
+          }
             type="text"
             id="name"
             name="name"
@@ -36,6 +59,7 @@ const SimpleForm = () => {
             Email
           </label>
           <input
+            onChange={handleEmailChange}
             type="email"
             id="email"
             name="email"
@@ -52,6 +76,7 @@ const SimpleForm = () => {
             Message
           </label>
           <textarea
+            onChange={handleMessageChange}
             id="message"
             name="message"
             className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"

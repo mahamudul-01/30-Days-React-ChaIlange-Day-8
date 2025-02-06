@@ -23,6 +23,11 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
+            <Link to='/context-api' className="text-white hover:text-gray-200">
+              Context API
+            </Link>
+          </li>
+          <li>
             <a href="#" className="text-white hover:text-gray-200">
               About
             </a>

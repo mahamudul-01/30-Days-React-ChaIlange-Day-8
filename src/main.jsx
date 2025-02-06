@@ -7,6 +7,7 @@ import {
 import './index.css'
 import App from './App.jsx'
 import SimpleForm from './components/SimpleForm/SimpleForm.jsx';
+import Grandpa from './components/Grandpa/Grandpa.jsx';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "/form",
         element: <SimpleForm></SimpleForm>,
+      },
+      {
+        path:'/context-api',
+        element: <Grandpa></Grandpa>
       }
     ]
       
